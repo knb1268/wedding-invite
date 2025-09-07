@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wedding Invitation - Niveditha & Rajaneesh</title>
+  <meta name="description" content="You are cordially invited to celebrate the wedding of Niveditha & Rajaneesh on 29th October 2025 at Shree Thirumala Venkataramana Swamy Kalyana Mantapa, Bantwal.">
+  <meta property="og:title" content="Wedding Invitation – Niveditha & Rajaneesh">
+  <meta property="og:description" content="Join us for the wedding celebration! Click to view the invite.">
+  <meta property="og:image" content="images/share-preview.jpg">
+  <meta property="og:url" content="https://niveditha-rajaneesh-wedding-invite.netlify.app/">
+  <meta property="og:type" content="website">
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <style>
+:root {
+      --text: #4b2e2e;
+      --heading: #b07b02;
+      --muted: #7a4a1f;
+    }
+
+    body {
+      background: linear-gradient(160deg, #fff8f0, #fff4e0);
+      background-attachment: fixed;
+      background-size: cover;
+      font-family: 'Merriweather', serif;
+      color: var(--text);
+      text-align: center;
+      padding: 10px;
+      font-size: clamp(0.9rem, 1vw, 1rem);
+      overflow-x: hidden;
+    }
+
+.book {
+      width: 100%;
+      max-width: 750px;
+      height: 95vh;
+      margin: auto;
+      perspective: 2000px;
+      position: relative;
+    }
+
+    .page {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      transition: transform 1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+.page.front { transform: rotateY(0deg); z-index: 2; }
+    .page.back { transform: rotateY(-180deg); z-index: 1; }
+    .book.flipped .front { transform: rotateY(180deg); }
+    .book.flipped .back { transform: rotateY(0deg); z-index: 3; }
+    
+.invite-card {
+      width: 100%;
+      margin: 10px;
+      padding: 20px 15px;
+      border: 10px double transparent;
+      border-image: linear-gradient(45deg, #c59d5f, #e6c88b, #c59d5f) 1;
+      border-radius: 20px;
+      //background: #fffaf2e6 url('https://www.transparenttextures.com/patterns/paper-fibers.png') repeat;
+      background: rgba(255, 255, 255, 0.92) url('https://www.transparenttextures.com/patterns/paper-fibers.png') repeat;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      position: relative;
+      animation: zoomIn 1.2s ease-in-out;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+
+    .corner {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: url('corner.svg') no-repeat center center;
+      background-size: contain;
+    }
+    .corner.tl { top: 6px; left: 6px; }
+    .corner.tr { top: 6px; right: 6px; transform: scaleX(-1); }
+    .corner.bl { bottom: 6px; left: 6px; transform: scaleY(-1); }
+    .corner.br { bottom: 6px; right: 6px; transform: scale(-1,-1); }
+
+.ganesha {
+      width: 5rem;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 4px #c59d5f);
+    }
+
+h3, h4, h5 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--heading);
+      letter-spacing: 0.5px;
+    }
+
+.highlight-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      background: #a26c02;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+.event-detail {
+      font-weight: bold;
+      margin: 10px 0;
+      font-size: clamp(1rem, 1.3vw, 1.1rem);
+      color: var(--muted);
+    }
+
+    .muhurtham {
+      border: 2px solid #c59d5f;
+      border-radius: 8px;
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(250,235,215,0.6);
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+.footer-note {
+      margin-top: 15px;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    ul.list-unstyled li { font-size: 0.95rem; margin: 4px 0; }
+
+@keyframes zoomIn {
+      from {opacity:0; transform:scale(0.9);}
+      to {opacity:1; transform:scale(1);}
+    }
+
+/* Floating Buttons */
+    .fab {
+      position: fixed;
+      bottom: 10%;
+      right: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .fab a, .fab button {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #d4af37, #ffd700, #c59d5f);
+      color: #4b2e2e;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .fab a:hover, .fab button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+    }
+
+    footer {
+      margin-top: 12px;
+      padding: 8px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 576px){
+      .fab a, .fab button { width: 36px; height: 36px; font-size: 18px; }
+      .fab { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="book" id="book">
+    <!-- Invitation Page -->
+    <div class="page front">
+      <div class="invite-card">
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+
+        <img src="https://pngmagic.com/webp_images/hd-lord-ganesha-24k-gold-coin-png-for-web-design_63q.webp" class="ganesha" alt="Golden Lord Ganesha blessing the wedding invitation">
+        <h6 style="font-size: 0.8rem;">|| Shree Kuladevatha Prasanna ||</h6>
+        <h5>Smt. Laxmi & Sri Narasimha Bhandarkar K., Puttur</h5>
+        <h5>&</h5>
+        <h5>Smt. Ravikala & Sri Venkataramana Bhat, Harikhandige</h5>
+
+        <p class="fw-bold mt-3">Solicit your gracious presence and blessing with family & friends on the auspicious occasion of the wedding ceremony of</p>
+
+        <h3 class="highlight-name">Chi. Sou. Niveditha <span class="fs-5">(Rukmini)</span></h3>
+        <p class="mb-0">( Eldest D/o Smt. Nanditha (Mala) & Namadeva Bhandarkar K. )</p>
+        <p class="mb-0">Grand D/o Late Dhanalaxmi & Narayana Bhandarkar K., Puttur</p>
+        <p class="mb-0">Grand D/o Smt. Kasturi & Late J. Ganapathy Shenoy, Jackribettu, Bantwal )</p>
+
+        <h4 class="my-3">With</h4>
+        <h3 class="highlight-name">Chi. Rajaneesh</h3>
+        <p>( Eldest S/o Smt. Ravikala & Venkataramana Bhat )</p>
+
+        <div class="event-detail">Wednesday, 29th October 2025</div>
+        <address class="event-detail">"Shree Thirumala Venkataramana Swamy Kalyana Mantapa"<br>Bantwal-574211</address>
+
+        <div class="my-3"><span class="muhurtham">Muhurtham: 12.14 PM (Abhijith Lagnam)</span></div>
+
+        <!-- Countdown -->
+        <div id="countdown" class="fw-bold my-2" style="color:#7a4a1f;"></div>
+
+        <div class="footer-note">Presents in blessings only 🙏</div>
+      </div>
+    </div>
+
+    <!-- Compliments Page -->
+    <div class="page back">
+      <div class="invite-card">
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+
+        <h3 class="fw-bold mb-3">With Best Compliments From</h3>
+        <ul class="list-unstyled">
+          <li>[Relative 1]</li>
+          <li>[Relative 2]</li>
+          <li>[Relative 3]</li>
+          <li>[Relative 4]</li>
+          <li>[Relative 5]</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Buttons -->
+  <div class="fab">
+    <!-- Map -->
+    <a href="https://maps.google.com/?q=Shree+Thirumala+Venkataramana+Swamy+Kalyana+Mantapa,+Bantwal" target="_blank" aria-label="Open venue in Google Maps">
+      <i class="bi bi-geo-alt-fill"></i>
+    </a>
+
+    <!-- Share -->
+    <a href="https://wa.me/?text=Join%20us%20to%20celebrate%20the%20wedding%20of%20Niveditha%20%26%20Rajaneesh%20on%2029th%20October%202025.%20Venue:%20Shree%20Thirumala%20Venkataramana%20Swamy%20Kalyana%20Mantapa,%20Bantwal.%20Invitation:%20https%3A%2F%2Fniveditha-rajaneesh-wedding-invite.netlify.app%2F" target="_blank" aria-label="Share invitation on WhatsApp">
+      <i class="bi bi-share-fill"></i>
+    </a>
+
+    <!-- Flip to Compliments -->
+    <button id="openCompliments" aria-label="View compliments page">
+      <i class="bi bi-journal-bookmark-fill"></i>
+    </button>
+
+    <!-- Back to Landing Page -->
+    <a href="index.html" title="Back to Landing Page" aria-label="Back to landing page">
+      <i class="bi bi-house-fill"></i>
+    </a>
+  </div>
+
+  <footer>
+    © <span id="year"></span> Namadeva Bhandarkar K. All rights reserved | Designed By: Namadeva Bhandarkar K.
+  </footer>
+
+  <script>
+    // Flipbook Controls
+    const book = document.getElementById('book');
+    const complimentsCard = document.querySelector('.page.back .invite-card');
+
+    document.getElementById('openCompliments').addEventListener('click', () => {
+      book.classList.toggle('flipped');
+    });
+
+    // Countdown Timer
+    function updateCountdown(){
+      const targetDate = new Date("October 29, 2025 12:14:00").getTime();
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      const countdownEl = document.getElementById('countdown');
+      if(diff <= 0) {
+        countdownEl.textContent = "💍 Today is the big day!";
+        return;
+      }
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+      countdownEl.textContent = `⏳ ${days} days, ${hours} hrs, ${mins} mins left`;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+
+    // Ensure Compliments page height matches front page
+    function adjustBackHeight() {
+      const frontHeight = document.querySelector('.page.front .invite-card').offsetHeight;
+      complimentsCard.style.height = frontHeight + "px";
+    }
+
+    // Run after all content, including images, is loaded
+    window.addEventListener('load', adjustBackHeight);
+    // Adjust on window resize
+    window.addEventListener('resize', adjustBackHeight);
+
+    // Dynamic year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
